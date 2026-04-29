@@ -1,109 +1,161 @@
 import streamlit as st
 import pandas as pd
-import requests
 
-# CONFIG
+# =============================
+# PAGE CONFIG
+# =============================
 st.set_page_config(page_title="IVIS", layout="wide")
 
+# =============================
 # LOAD DATA
+# =============================
 data = pd.read_csv("data.csv")
 
-# SIDEBAR (CHATBOT)
-st.sidebar.title("🤖 Travel Assistant")
-
-user_question = st.sidebar.text_input("Ask me anything")
-
-def chatbot_reply(q):
-    q = q.lower()
-
-    if "budget" in q:
-        return "Plan your trip by selecting places under your budget per day."
-    elif "best place" in q:
-        return "Manali and Goa are highly rated destinations."
-    elif "weather" in q:
-        return "You can check live weather in the main panel."
-    elif "hello" in q:
-        return "Hello! I am your travel assistant 😊"
-    else:
-        return "I can help with travel planning, budget, and destinations."
-
-if user_question:
-    st.sidebar.success(chatbot_reply(user_question))
-
+# =============================
 # TITLE
+# =============================
 st.title("🌍 Intelligent Voyage Itinerary System")
+st.markdown("### Smart Travel Planner (India)")
 
-# INPUT UI
+# =============================
+# LOCATION SELECTION
+# =============================
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    city = st.selectbox("Select City", data["city"].unique())
+    state = st.selectbox("Select State", data["state"].unique())
+
+state_data = data[data["state"] == state]
 
 with col2:
-    days = st.slider("Days", 1, 7, 3)
+    district = st.selectbox("Select District", state_data["district"].unique())
+
+district_data = state_data[state_data["district"] == district]
 
 with col3:
-    budget = st.number_input("Budget ₹", 1000, 50000, 10000)
+    taluk = st.selectbox("Select Taluk", district_data["taluk"].unique())
 
-# WEATHER API
-API_KEY = "YOUR_API_KEY_HERE"
+final_data = district_data[district_data["taluk"] == taluk]
 
-def get_weather(city):
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
-    try:
-        res = requests.get(url).json()
-        return res["main"]["temp"], res["weather"][0]["description"]
-    except:
-        return None, None
+# =============================
+# TRAVEL INPUT
+# =============================
+st.subheader("🚗 Travel Details")
 
-# BUTTON
-if st.button("Generate Smart Plan"):
+col4, col5, col6 = st.columns(3)
 
-    st.subheader("🌤 Weather")
+with col4:
+    start = st.text_input("Starting Location")
 
-    temp, desc = get_weather(city)
+with col5:
+    end = st.text_input("Destination")
 
-    if temp:
-        st.info(f"{city}: {temp}°C, {desc}")
+with col6:
+    vehicle = st.selectbox("Vehicle", ["Car", "Bike", "Bus", "Auto"])
+
+col7, col8 = st.columns(2)
+
+with col7:
+    mileage = st.number_input("Mileage (km/l)", 10, 50, 20)
+
+with col8:
+    fuel_price = st.number_input("Fuel Price ₹/liter", 80, 120, 100)
+
+budget = st.slider("Select Budget ₹", 0, 5000, 2000)
+
+# =============================
+# DISTANCE (STATIC DEMO)
+# =============================
+distance = 120  # You can upgrade later with API
+
+# =============================
+# BUTTON ACTION
+# =============================
+if st.button("🚀 Plan My Trip"):
+
+    # =============================
+    # MAP ROUTE
+    # =============================
+    st.subheader("🗺 Route Map")
+    map_link = f"https://www.google.com/maps/dir/{start}/{end}"
+    st.markdown(f"[👉 Open Route in Google Maps]({map_link})")
+
+    # =============================
+    # TRAVEL COST
+    # =============================
+    st.subheader("💰 Travel Cost Calculation")
+
+    fuel_needed = distance / mileage
+    total_cost = fuel_needed * fuel_price
+
+    st.success(f"Distance: {distance} km")
+    st.success(f"Fuel Needed: {fuel_needed:.2f} liters")
+    st.success(f"Estimated Cost: ₹{total_cost:.2f}")
+
+    # =============================
+    # FILTER DATA
+    # =============================
+    filtered = final_data[final_data["price"] <= budget]
+
+    # =============================
+    # SHOW PLACES
+    # =============================
+    st.subheader("📍 Tourist Places")
+    places = filtered[filtered["type"] == "place"]
+
+    if places.empty:
+        st.warning("No places found")
     else:
-        st.warning("Weather not available")
+        for _, row in places.iterrows():
+            st.write(f"🔹 {row['place']} ⭐{row['rating']}")
 
-    # SMART FILTER
-    filtered = data[
-        (data["city"] == city) &
-        (data["price"] <= budget / days)
-    ].sort_values(by=["rating", "price"], ascending=[False, True])
+    # =============================
+    # SHOW HOTELS
+    # =============================
+    st.subheader("🏨 Hotels")
+    hotels = filtered[filtered["type"] == "hotel"]
 
-    st.subheader("📍 Top Recommendations")
-
-    if filtered.empty:
-        st.error("No places match your budget")
+    if hotels.empty:
+        st.warning("No hotels found")
     else:
-        for _, row in filtered.iterrows():
-            st.markdown(f"""
-            🔹 **{row['place']}**  
-            ⭐ Rating: {row['rating']}  
-            💰 Price: ₹{row['price']}  
-            """)
+        for _, row in hotels.iterrows():
+            st.write(f"🔹 {row['place']} 💰₹{row['price']} ⭐{row['rating']}")
 
-    st.subheader("🗓️ Itinerary Plan")
+    # =============================
+    # SHOW RESTAURANTS
+    # =============================
+    st.subheader("🍽 Restaurants")
+    foods = filtered[filtered["type"] == "restaurant"]
 
-    if not filtered.empty:
-        places = filtered["place"].tolist()
+    if foods.empty:
+        st.warning("No restaurants found")
+    else:
+        for _, row in foods.iterrows():
+            st.write(f"🔹 {row['place']} 💰₹{row['price']} ⭐{row['rating']}")
 
-        itinerary = []
+    # =============================
+    # DAY PLAN
+    # =============================
+    st.subheader("🗓 Suggested Itinerary")
 
-        for i in range(days):
-            place = places[i % len(places)]
-            itinerary.append(f"Day {i+1}: Visit {place}")
+    all_places = filtered["place"].tolist()
 
-            map_link = f"https://www.google.com/maps/search/{place}"
-            st.write(f"Day {i+1}: {place}")
-            st.markdown(f"[📍 View Map]({map_link})")
+    itinerary = []
 
-        # SAVE FEATURE
+    if len(all_places) == 0:
+        st.warning("No itinerary available")
+    else:
+        for i in range(min(3, len(all_places))):
+            plan = f"Day {i+1}: Visit {all_places[i]}"
+            itinerary.append(plan)
+            st.write(plan)
+
+    # =============================
+    # DOWNLOAD
+    # =============================
+    if itinerary:
         st.download_button(
-            label="📥 Download Itinerary",
-            data="\n".join(itinerary),
-            file_name="itinerary.txt"
+            "📥 Download Itinerary",
+            "\n".join(itinerary),
+            file_name="travel_plan.txt"
         )

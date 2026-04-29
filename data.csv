@@ -1,8 +1,401 @@
-place,city,category,price,rating
-Goa Beach,Goa,relax,2000,4.5
-Baga Beach,Goa,party,1500,4.6
-Fort Aguada,Goa,history,500,4.3
-Hawa Mahal,Jaipur,history,300,4.4
-City Palace,Jaipur,history,800,4.5
-Manali Snow,Manali,adventure,2500,4.7
-Solang Valley,Manali,adventure,2000,4.6
+state,district,taluk,place,type,price,rating
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Food Court 0,restaurant,645,5.0
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Beach 1,place,6,4.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Food Court 2,restaurant,202,3.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Inn 3,hotel,1312,3.6
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Palace 4,hotel,3778,3.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 5,hotel,3076,4.2
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Temple 6,place,35,3.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Restaurant 7,restaurant,261,4.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Food Court 8,restaurant,565,4.3
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Food Court 9,restaurant,619,3.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Cafe 10,restaurant,121,3.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Stay 11,hotel,1628,4.4
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Beach 12,place,244,4.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hill 13,place,266,4.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Fort 14,place,58,4.7
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hill 15,place,70,4.1
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 16,hotel,1510,4.8
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hill 17,place,69,3.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Fort 18,place,125,3.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 19,hotel,887,4.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 20,hotel,1034,4.0
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Mess 21,restaurant,795,4.3
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Temple 22,place,295,5.0
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Mess 23,restaurant,454,4.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Stay 24,hotel,3145,3.7
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Beach 25,place,49,4.1
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Cafe 26,restaurant,568,3.6
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Resort 27,hotel,829,3.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Beach 28,place,223,3.7
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Stay 29,hotel,2251,4.4
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 30,hotel,3308,4.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Cafe 31,restaurant,614,3.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Lake 32,place,299,4.6
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Temple 33,place,274,4.6
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Stay 34,hotel,2501,4.8
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Mess 35,restaurant,467,4.4
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Stay 36,hotel,1281,4.4
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Beach 37,place,109,4.7
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 38,hotel,2939,4.2
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hill 39,place,248,3.8
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 40,hotel,2154,4.3
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hotel 41,hotel,1531,3.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Restaurant 42,restaurant,500,4.7
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Food Court 43,restaurant,139,4.3
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Lake 44,place,118,3.6
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Restaurant 45,restaurant,454,4.5
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Cafe 46,restaurant,766,4.1
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Resort 47,hotel,1610,4.9
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Hill 48,place,299,4.4
+Karnataka,Bangalore Urban,Bangalore North,Bangalore North Restaurant 49,restaurant,248,3.5
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Beach 0,place,147,5.0
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Restaurant 1,restaurant,532,4.4
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Resort 2,hotel,2165,3.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Lake 3,place,167,3.9
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Lake 4,place,120,4.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Mess 5,restaurant,474,4.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 6,place,280,4.3
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Mess 7,restaurant,707,4.1
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Stay 8,hotel,3384,4.0
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 9,hotel,3468,3.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Mess 10,restaurant,127,3.5
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Stay 11,hotel,4671,3.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Restaurant 12,restaurant,622,4.2
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Palace 13,hotel,2591,3.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 14,hotel,3922,4.9
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 15,place,27,4.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 16,place,221,3.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Park 17,place,24,4.1
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Mess 18,restaurant,267,4.1
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hill 19,place,11,4.3
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Mess 20,restaurant,470,5.0
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Food Court 21,restaurant,744,4.4
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 22,place,7,4.7
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Resort 23,hotel,4396,3.9
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Food Court 24,restaurant,182,3.7
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Inn 25,hotel,2112,4.1
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hill 26,place,297,3.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Restaurant 27,restaurant,642,4.9
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Stay 28,hotel,4458,4.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Palace 29,hotel,2575,4.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 30,hotel,2810,3.9
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Resort 31,hotel,952,4.3
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hill 32,place,54,4.3
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 33,place,268,3.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 34,hotel,1876,4.2
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Cafe 35,restaurant,327,3.7
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Park 36,place,68,4.2
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Stay 37,hotel,2661,4.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 38,hotel,2471,4.1
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Resort 39,hotel,4075,3.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Cafe 40,restaurant,752,4.1
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 41,hotel,1786,4.8
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 42,hotel,2158,3.7
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Food Court 43,restaurant,269,4.0
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Mess 44,restaurant,172,4.7
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 45,place,262,4.9
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Temple 46,place,273,4.0
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Fort 47,place,148,3.5
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Hotel 48,hotel,4872,4.6
+Karnataka,Bangalore Urban,Bangalore South,Bangalore South Cafe 49,restaurant,369,3.7
+Karnataka,Mysore,Mysore,Mysore Palace 0,hotel,1452,4.6
+Karnataka,Mysore,Mysore,Mysore Stay 1,hotel,2652,3.9
+Karnataka,Mysore,Mysore,Mysore Stay 2,hotel,1511,3.9
+Karnataka,Mysore,Mysore,Mysore Hotel 3,hotel,1698,4.1
+Karnataka,Mysore,Mysore,Mysore Stay 4,hotel,2572,4.0
+Karnataka,Mysore,Mysore,Mysore Inn 5,hotel,1999,4.5
+Karnataka,Mysore,Mysore,Mysore Temple 6,place,233,4.0
+Karnataka,Mysore,Mysore,Mysore Hill 7,place,23,4.8
+Karnataka,Mysore,Mysore,Mysore Stay 8,hotel,2348,3.6
+Karnataka,Mysore,Mysore,Mysore Lake 9,place,137,3.7
+Karnataka,Mysore,Mysore,Mysore Stay 10,hotel,3075,3.7
+Karnataka,Mysore,Mysore,Mysore Inn 11,hotel,4306,4.6
+Karnataka,Mysore,Mysore,Mysore Palace 12,hotel,3696,4.3
+Karnataka,Mysore,Mysore,Mysore Cafe 13,restaurant,342,4.4
+Karnataka,Mysore,Mysore,Mysore Beach 14,place,122,3.6
+Karnataka,Mysore,Mysore,Mysore Food Court 15,restaurant,396,4.5
+Karnataka,Mysore,Mysore,Mysore Food Court 16,restaurant,601,3.9
+Karnataka,Mysore,Mysore,Mysore Mess 17,restaurant,126,4.5
+Karnataka,Mysore,Mysore,Mysore Restaurant 18,restaurant,591,4.7
+Karnataka,Mysore,Mysore,Mysore Beach 19,place,247,3.6
+Karnataka,Mysore,Mysore,Mysore Restaurant 20,restaurant,417,4.3
+Karnataka,Mysore,Mysore,Mysore Hotel 21,hotel,3512,4.9
+Karnataka,Mysore,Mysore,Mysore Food Court 22,restaurant,530,4.0
+Karnataka,Mysore,Mysore,Mysore Palace 23,hotel,2177,3.6
+Karnataka,Mysore,Mysore,Mysore Fort 24,place,45,4.3
+Karnataka,Mysore,Mysore,Mysore Beach 25,place,264,3.7
+Karnataka,Mysore,Mysore,Mysore Cafe 26,restaurant,160,3.6
+Karnataka,Mysore,Mysore,Mysore Food Court 27,restaurant,237,3.6
+Karnataka,Mysore,Mysore,Mysore Palace 28,hotel,3865,4.2
+Karnataka,Mysore,Mysore,Mysore Restaurant 29,restaurant,426,4.3
+Karnataka,Mysore,Mysore,Mysore Temple 30,place,152,4.5
+Karnataka,Mysore,Mysore,Mysore Temple 31,place,145,4.7
+Karnataka,Mysore,Mysore,Mysore Restaurant 32,restaurant,703,3.8
+Karnataka,Mysore,Mysore,Mysore Food Court 33,restaurant,412,4.8
+Karnataka,Mysore,Mysore,Mysore Inn 34,hotel,857,4.0
+Karnataka,Mysore,Mysore,Mysore Cafe 35,restaurant,437,4.2
+Karnataka,Mysore,Mysore,Mysore Hill 36,place,246,3.7
+Karnataka,Mysore,Mysore,Mysore Beach 37,place,162,4.6
+Karnataka,Mysore,Mysore,Mysore Restaurant 38,restaurant,185,4.7
+Karnataka,Mysore,Mysore,Mysore Palace 39,hotel,2210,4.3
+Karnataka,Mysore,Mysore,Mysore Inn 40,hotel,2840,4.2
+Karnataka,Mysore,Mysore,Mysore Food Court 41,restaurant,274,4.3
+Karnataka,Mysore,Mysore,Mysore Lake 42,place,160,4.9
+Karnataka,Mysore,Mysore,Mysore Beach 43,place,207,3.8
+Karnataka,Mysore,Mysore,Mysore Hotel 44,hotel,4141,3.7
+Karnataka,Mysore,Mysore,Mysore Temple 45,place,151,4.1
+Karnataka,Mysore,Mysore,Mysore Stay 46,hotel,4987,4.3
+Karnataka,Mysore,Mysore,Mysore Mess 47,restaurant,428,4.5
+Karnataka,Mysore,Mysore,Mysore Hotel 48,hotel,2336,4.3
+Karnataka,Mysore,Mysore,Mysore Resort 49,hotel,2213,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 0,hotel,2834,3.9
+Karnataka,Tumakuru,Tumakuru,Tumakuru Park 1,place,35,4.2
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 2,hotel,1018,3.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Food Court 3,restaurant,553,3.9
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hill 4,place,134,4.0
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hill 5,place,70,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 6,hotel,2902,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Beach 7,place,199,3.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Fort 8,place,38,4.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Inn 9,hotel,2261,4.1
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hill 10,place,142,4.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Temple 11,place,117,4.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hotel 12,hotel,1839,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Food Court 13,restaurant,623,3.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hotel 14,hotel,2930,3.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Restaurant 15,restaurant,469,4.3
+Karnataka,Tumakuru,Tumakuru,Tumakuru Inn 16,hotel,2542,4.2
+Karnataka,Tumakuru,Tumakuru,Tumakuru Food Court 17,restaurant,389,4.2
+Karnataka,Tumakuru,Tumakuru,Tumakuru Temple 18,place,157,4.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Food Court 19,restaurant,320,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Inn 20,hotel,4489,4.1
+Karnataka,Tumakuru,Tumakuru,Tumakuru Restaurant 21,restaurant,602,3.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 22,hotel,2890,3.9
+Karnataka,Tumakuru,Tumakuru,Tumakuru Palace 23,hotel,2250,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hotel 24,hotel,3488,4.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Lake 25,place,128,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Palace 26,hotel,1947,4.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Fort 27,place,160,4.2
+Karnataka,Tumakuru,Tumakuru,Tumakuru Inn 28,hotel,2353,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Inn 29,hotel,2077,4.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 30,hotel,2616,4.0
+Karnataka,Tumakuru,Tumakuru,Tumakuru Palace 31,hotel,4923,4.2
+Karnataka,Tumakuru,Tumakuru,Tumakuru Restaurant 32,restaurant,230,4.9
+Karnataka,Tumakuru,Tumakuru,Tumakuru Lake 33,place,230,3.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Stay 34,hotel,1934,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Hotel 35,hotel,1043,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Fort 36,place,123,4.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Food Court 37,restaurant,260,3.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 38,hotel,4998,4.9
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 39,hotel,3267,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Temple 40,place,129,3.6
+Karnataka,Tumakuru,Tumakuru,Tumakuru Fort 41,place,42,4.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Inn 42,hotel,2678,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Resort 43,hotel,1060,3.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Park 44,place,34,3.7
+Karnataka,Tumakuru,Tumakuru,Tumakuru Palace 45,hotel,4864,4.1
+Karnataka,Tumakuru,Tumakuru,Tumakuru Lake 46,place,106,4.5
+Karnataka,Tumakuru,Tumakuru,Tumakuru Mess 47,restaurant,200,4.1
+Karnataka,Tumakuru,Tumakuru,Tumakuru Cafe 48,restaurant,119,4.8
+Karnataka,Tumakuru,Tumakuru,Tumakuru Temple 49,place,287,4.7
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 0,restaurant,233,4.2
+Karnataka,Tumakuru,Tiptur,Tiptur Temple 1,place,218,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Lake 2,place,271,4.7
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 3,restaurant,464,4.5
+Karnataka,Tumakuru,Tiptur,Tiptur Park 4,place,193,3.8
+Karnataka,Tumakuru,Tiptur,Tiptur Park 5,place,222,4.5
+Karnataka,Tumakuru,Tiptur,Tiptur Lake 6,place,224,3.6
+Karnataka,Tumakuru,Tiptur,Tiptur Fort 7,place,79,4.7
+Karnataka,Tumakuru,Tiptur,Tiptur Inn 8,hotel,4858,4.4
+Karnataka,Tumakuru,Tiptur,Tiptur Beach 9,place,2,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Palace 10,hotel,3016,3.6
+Karnataka,Tumakuru,Tiptur,Tiptur Fort 11,place,258,4.5
+Karnataka,Tumakuru,Tiptur,Tiptur Beach 12,place,72,4.4
+Karnataka,Tumakuru,Tiptur,Tiptur Food Court 13,restaurant,537,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Palace 14,hotel,1719,4.4
+Karnataka,Tumakuru,Tiptur,Tiptur Mess 15,restaurant,247,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Restaurant 16,restaurant,347,3.5
+Karnataka,Tumakuru,Tiptur,Tiptur Beach 17,place,107,4.1
+Karnataka,Tumakuru,Tiptur,Tiptur Temple 18,place,188,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 19,restaurant,142,4.5
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 20,restaurant,356,5.0
+Karnataka,Tumakuru,Tiptur,Tiptur Stay 21,hotel,2634,4.0
+Karnataka,Tumakuru,Tiptur,Tiptur Inn 22,hotel,1029,4.4
+Karnataka,Tumakuru,Tiptur,Tiptur Food Court 23,restaurant,619,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Park 24,place,35,4.8
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 25,restaurant,724,4.2
+Karnataka,Tumakuru,Tiptur,Tiptur Resort 26,hotel,1573,4.5
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 27,restaurant,701,4.2
+Karnataka,Tumakuru,Tiptur,Tiptur Mess 28,restaurant,575,4.1
+Karnataka,Tumakuru,Tiptur,Tiptur Cafe 29,restaurant,664,4.2
+Karnataka,Tumakuru,Tiptur,Tiptur Fort 30,place,117,4.7
+Karnataka,Tumakuru,Tiptur,Tiptur Beach 31,place,56,4.0
+Karnataka,Tumakuru,Tiptur,Tiptur Inn 32,hotel,4414,3.8
+Karnataka,Tumakuru,Tiptur,Tiptur Food Court 33,restaurant,446,4.2
+Karnataka,Tumakuru,Tiptur,Tiptur Food Court 34,restaurant,189,3.6
+Karnataka,Tumakuru,Tiptur,Tiptur Inn 35,hotel,4135,5.0
+Karnataka,Tumakuru,Tiptur,Tiptur Mess 36,restaurant,191,3.9
+Karnataka,Tumakuru,Tiptur,Tiptur Palace 37,hotel,4009,4.3
+Karnataka,Tumakuru,Tiptur,Tiptur Food Court 38,restaurant,136,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Resort 39,hotel,4255,4.9
+Karnataka,Tumakuru,Tiptur,Tiptur Temple 40,place,276,4.4
+Karnataka,Tumakuru,Tiptur,Tiptur Mess 41,restaurant,464,4.4
+Karnataka,Tumakuru,Tiptur,Tiptur Inn 42,hotel,4332,4.6
+Karnataka,Tumakuru,Tiptur,Tiptur Hill 43,place,3,4.8
+Karnataka,Tumakuru,Tiptur,Tiptur Stay 44,hotel,2027,3.6
+Karnataka,Tumakuru,Tiptur,Tiptur Resort 45,hotel,3001,4.6
+Karnataka,Tumakuru,Tiptur,Tiptur Restaurant 46,restaurant,716,3.8
+Karnataka,Tumakuru,Tiptur,Tiptur Resort 47,hotel,4292,5.0
+Karnataka,Tumakuru,Tiptur,Tiptur Inn 48,hotel,3277,3.6
+Karnataka,Tumakuru,Tiptur,Tiptur Temple 49,place,233,3.6
+Tamil Nadu,Chennai,Chennai,Chennai Stay 0,hotel,2290,4.1
+Tamil Nadu,Chennai,Chennai,Chennai Palace 1,hotel,4159,4.3
+Tamil Nadu,Chennai,Chennai,Chennai Hotel 2,hotel,3091,4.5
+Tamil Nadu,Chennai,Chennai,Chennai Food Court 3,restaurant,515,4.5
+Tamil Nadu,Chennai,Chennai,Chennai Palace 4,hotel,1511,4.6
+Tamil Nadu,Chennai,Chennai,Chennai Cafe 5,restaurant,447,4.2
+Tamil Nadu,Chennai,Chennai,Chennai Hotel 6,hotel,3830,3.6
+Tamil Nadu,Chennai,Chennai,Chennai Inn 7,hotel,1981,3.5
+Tamil Nadu,Chennai,Chennai,Chennai Stay 8,hotel,3443,3.6
+Tamil Nadu,Chennai,Chennai,Chennai Cafe 9,restaurant,477,4.5
+Tamil Nadu,Chennai,Chennai,Chennai Restaurant 10,restaurant,249,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Inn 11,hotel,2806,4.9
+Tamil Nadu,Chennai,Chennai,Chennai Stay 12,hotel,4443,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Stay 13,hotel,1367,3.8
+Tamil Nadu,Chennai,Chennai,Chennai Park 14,place,234,3.9
+Tamil Nadu,Chennai,Chennai,Chennai Hotel 15,hotel,1421,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Food Court 16,restaurant,559,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Food Court 17,restaurant,202,4.8
+Tamil Nadu,Chennai,Chennai,Chennai Resort 18,hotel,998,4.6
+Tamil Nadu,Chennai,Chennai,Chennai Inn 19,hotel,3414,4.4
+Tamil Nadu,Chennai,Chennai,Chennai Temple 20,place,80,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Resort 21,hotel,1960,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Resort 22,hotel,4914,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Resort 23,hotel,1765,4.1
+Tamil Nadu,Chennai,Chennai,Chennai Restaurant 24,restaurant,405,4.3
+Tamil Nadu,Chennai,Chennai,Chennai Palace 25,hotel,2453,4.7
+Tamil Nadu,Chennai,Chennai,Chennai Restaurant 26,restaurant,641,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Palace 27,hotel,1366,5.0
+Tamil Nadu,Chennai,Chennai,Chennai Lake 28,place,76,4.7
+Tamil Nadu,Chennai,Chennai,Chennai Mess 29,restaurant,414,3.9
+Tamil Nadu,Chennai,Chennai,Chennai Food Court 30,restaurant,120,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Resort 31,hotel,3662,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Stay 32,hotel,3050,4.2
+Tamil Nadu,Chennai,Chennai,Chennai Mess 33,restaurant,548,4.6
+Tamil Nadu,Chennai,Chennai,Chennai Restaurant 34,restaurant,779,4.7
+Tamil Nadu,Chennai,Chennai,Chennai Stay 35,hotel,2176,3.7
+Tamil Nadu,Chennai,Chennai,Chennai Resort 36,hotel,3970,4.4
+Tamil Nadu,Chennai,Chennai,Chennai Inn 37,hotel,1018,3.6
+Tamil Nadu,Chennai,Chennai,Chennai Temple 38,place,163,4.5
+Tamil Nadu,Chennai,Chennai,Chennai Hill 39,place,20,4.7
+Tamil Nadu,Chennai,Chennai,Chennai Resort 40,hotel,4793,4.9
+Tamil Nadu,Chennai,Chennai,Chennai Inn 41,hotel,3794,4.8
+Tamil Nadu,Chennai,Chennai,Chennai Beach 42,place,143,3.8
+Tamil Nadu,Chennai,Chennai,Chennai Inn 43,hotel,2717,4.7
+Tamil Nadu,Chennai,Chennai,Chennai Temple 44,place,68,4.8
+Tamil Nadu,Chennai,Chennai,Chennai Restaurant 45,restaurant,276,4.0
+Tamil Nadu,Chennai,Chennai,Chennai Cafe 46,restaurant,416,3.7
+Tamil Nadu,Chennai,Chennai,Chennai Inn 47,hotel,3130,4.1
+Tamil Nadu,Chennai,Chennai,Chennai Beach 48,place,22,3.8
+Tamil Nadu,Chennai,Chennai,Chennai Stay 49,hotel,4884,4.8
+Kerala,Ernakulam,Kochi,Kochi Hotel 0,hotel,2935,4.5
+Kerala,Ernakulam,Kochi,Kochi Mess 1,restaurant,623,3.8
+Kerala,Ernakulam,Kochi,Kochi Palace 2,hotel,1675,3.6
+Kerala,Ernakulam,Kochi,Kochi Hotel 3,hotel,2219,4.3
+Kerala,Ernakulam,Kochi,Kochi Food Court 4,restaurant,572,4.6
+Kerala,Ernakulam,Kochi,Kochi Beach 5,place,6,4.7
+Kerala,Ernakulam,Kochi,Kochi Hill 6,place,177,3.7
+Kerala,Ernakulam,Kochi,Kochi Lake 7,place,270,4.6
+Kerala,Ernakulam,Kochi,Kochi Beach 8,place,286,4.6
+Kerala,Ernakulam,Kochi,Kochi Fort 9,place,23,4.8
+Kerala,Ernakulam,Kochi,Kochi Temple 10,place,131,4.8
+Kerala,Ernakulam,Kochi,Kochi Park 11,place,79,4.8
+Kerala,Ernakulam,Kochi,Kochi Mess 12,restaurant,371,3.8
+Kerala,Ernakulam,Kochi,Kochi Hotel 13,hotel,3173,4.6
+Kerala,Ernakulam,Kochi,Kochi Beach 14,place,98,3.6
+Kerala,Ernakulam,Kochi,Kochi Temple 15,place,119,4.6
+Kerala,Ernakulam,Kochi,Kochi Resort 16,hotel,2798,4.0
+Kerala,Ernakulam,Kochi,Kochi Resort 17,hotel,2305,5.0
+Kerala,Ernakulam,Kochi,Kochi Hotel 18,hotel,4307,3.6
+Kerala,Ernakulam,Kochi,Kochi Stay 19,hotel,3523,3.9
+Kerala,Ernakulam,Kochi,Kochi Mess 20,restaurant,125,4.2
+Kerala,Ernakulam,Kochi,Kochi Restaurant 21,restaurant,789,3.6
+Kerala,Ernakulam,Kochi,Kochi Cafe 22,restaurant,165,3.8
+Kerala,Ernakulam,Kochi,Kochi Resort 23,hotel,4399,4.1
+Kerala,Ernakulam,Kochi,Kochi Mess 24,restaurant,503,4.3
+Kerala,Ernakulam,Kochi,Kochi Food Court 25,restaurant,686,3.9
+Kerala,Ernakulam,Kochi,Kochi Hotel 26,hotel,4166,4.1
+Kerala,Ernakulam,Kochi,Kochi Temple 27,place,293,4.8
+Kerala,Ernakulam,Kochi,Kochi Beach 28,place,25,4.0
+Kerala,Ernakulam,Kochi,Kochi Lake 29,place,65,4.2
+Kerala,Ernakulam,Kochi,Kochi Food Court 30,restaurant,164,4.8
+Kerala,Ernakulam,Kochi,Kochi Mess 31,restaurant,535,4.9
+Kerala,Ernakulam,Kochi,Kochi Park 32,place,230,4.3
+Kerala,Ernakulam,Kochi,Kochi Lake 33,place,107,4.4
+Kerala,Ernakulam,Kochi,Kochi Beach 34,place,237,4.6
+Kerala,Ernakulam,Kochi,Kochi Park 35,place,75,4.5
+Kerala,Ernakulam,Kochi,Kochi Palace 36,hotel,4174,3.9
+Kerala,Ernakulam,Kochi,Kochi Resort 37,hotel,1757,4.9
+Kerala,Ernakulam,Kochi,Kochi Food Court 38,restaurant,787,4.0
+Kerala,Ernakulam,Kochi,Kochi Hill 39,place,31,3.9
+Kerala,Ernakulam,Kochi,Kochi Palace 40,hotel,4977,4.1
+Kerala,Ernakulam,Kochi,Kochi Hotel 41,hotel,3240,3.7
+Kerala,Ernakulam,Kochi,Kochi Fort 42,place,145,3.7
+Kerala,Ernakulam,Kochi,Kochi Stay 43,hotel,3922,4.8
+Kerala,Ernakulam,Kochi,Kochi Inn 44,hotel,4130,3.7
+Kerala,Ernakulam,Kochi,Kochi Palace 45,hotel,2163,4.9
+Kerala,Ernakulam,Kochi,Kochi Stay 46,hotel,3146,3.6
+Kerala,Ernakulam,Kochi,Kochi Stay 47,hotel,3693,3.9
+Kerala,Ernakulam,Kochi,Kochi Food Court 48,restaurant,259,3.8
+Kerala,Ernakulam,Kochi,Kochi Resort 49,hotel,1166,3.5
+Maharashtra,Mumbai,Mumbai,Mumbai Stay 0,hotel,2164,3.7
+Maharashtra,Mumbai,Mumbai,Mumbai Temple 1,place,199,3.7
+Maharashtra,Mumbai,Mumbai,Mumbai Park 2,place,4,4.0
+Maharashtra,Mumbai,Mumbai,Mumbai Hill 3,place,25,4.2
+Maharashtra,Mumbai,Mumbai,Mumbai Food Court 4,restaurant,674,5.0
+Maharashtra,Mumbai,Mumbai,Mumbai Food Court 5,restaurant,456,4.8
+Maharashtra,Mumbai,Mumbai,Mumbai Cafe 6,restaurant,448,4.2
+Maharashtra,Mumbai,Mumbai,Mumbai Park 7,place,20,3.5
+Maharashtra,Mumbai,Mumbai,Mumbai Restaurant 8,restaurant,208,4.0
+Maharashtra,Mumbai,Mumbai,Mumbai Cafe 9,restaurant,770,3.5
+Maharashtra,Mumbai,Mumbai,Mumbai Beach 10,place,300,4.7
+Maharashtra,Mumbai,Mumbai,Mumbai Food Court 11,restaurant,655,3.9
+Maharashtra,Mumbai,Mumbai,Mumbai Hill 12,place,48,3.9
+Maharashtra,Mumbai,Mumbai,Mumbai Inn 13,hotel,2568,4.8
+Maharashtra,Mumbai,Mumbai,Mumbai Restaurant 14,restaurant,302,4.7
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 15,restaurant,746,4.7
+Maharashtra,Mumbai,Mumbai,Mumbai Temple 16,place,89,4.0
+Maharashtra,Mumbai,Mumbai,Mumbai Hotel 17,hotel,4502,3.5
+Maharashtra,Mumbai,Mumbai,Mumbai Hill 18,place,8,4.5
+Maharashtra,Mumbai,Mumbai,Mumbai Food Court 19,restaurant,175,4.1
+Maharashtra,Mumbai,Mumbai,Mumbai Resort 20,hotel,4394,4.8
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 21,restaurant,269,4.9
+Maharashtra,Mumbai,Mumbai,Mumbai Restaurant 22,restaurant,713,4.6
+Maharashtra,Mumbai,Mumbai,Mumbai Inn 23,hotel,1398,3.9
+Maharashtra,Mumbai,Mumbai,Mumbai Inn 24,hotel,3672,3.9
+Maharashtra,Mumbai,Mumbai,Mumbai Stay 25,hotel,3836,4.6
+Maharashtra,Mumbai,Mumbai,Mumbai Inn 26,hotel,818,3.5
+Maharashtra,Mumbai,Mumbai,Mumbai Palace 27,hotel,2133,4.9
+Maharashtra,Mumbai,Mumbai,Mumbai Hotel 28,hotel,2141,3.7
+Maharashtra,Mumbai,Mumbai,Mumbai Hotel 29,hotel,4837,3.8
+Maharashtra,Mumbai,Mumbai,Mumbai Resort 30,hotel,4685,4.0
+Maharashtra,Mumbai,Mumbai,Mumbai Food Court 31,restaurant,190,3.5
+Maharashtra,Mumbai,Mumbai,Mumbai Restaurant 32,restaurant,711,3.6
+Maharashtra,Mumbai,Mumbai,Mumbai Stay 33,hotel,4395,3.7
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 34,restaurant,362,4.2
+Maharashtra,Mumbai,Mumbai,Mumbai Stay 35,hotel,2141,4.8
+Maharashtra,Mumbai,Mumbai,Mumbai Palace 36,hotel,1008,3.8
+Maharashtra,Mumbai,Mumbai,Mumbai Cafe 37,restaurant,285,4.5
+Maharashtra,Mumbai,Mumbai,Mumbai Stay 38,hotel,2141,3.6
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 39,restaurant,279,5.0
+Maharashtra,Mumbai,Mumbai,Mumbai Cafe 40,restaurant,641,4.6
+Maharashtra,Mumbai,Mumbai,Mumbai Beach 41,place,7,5.0
+Maharashtra,Mumbai,Mumbai,Mumbai Cafe 42,restaurant,265,4.9
+Maharashtra,Mumbai,Mumbai,Mumbai Fort 43,place,147,4.4
+Maharashtra,Mumbai,Mumbai,Mumbai Resort 44,hotel,3117,4.9
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 45,restaurant,588,4.6
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 46,restaurant,353,4.7
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 47,restaurant,783,4.2
+Maharashtra,Mumbai,Mumbai,Mumbai Fort 48,place,257,4.6
+Maharashtra,Mumbai,Mumbai,Mumbai Mess 49,restaurant,656,4.0
