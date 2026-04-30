@@ -1,174 +1,146 @@
 import streamlit as st
-import pandas as pd
-import sqlite3
 import requests
 from geopy.distance import geodesic
-from streamlit_folium import st_folium
 import folium
+from streamlit_folium import st_folium
 
-# =============================
-# DATABASE SETUP
-# =============================
-conn = sqlite3.connect("users.db", check_same_thread=False)
-c = conn.cursor()
-
-c.execute('''
-CREATE TABLE IF NOT EXISTS users (
-    username TEXT,
-    password TEXT
-)
-''')
-
-conn.commit()
-
-# =============================
-# FUNCTIONS
-# =============================
-def login_user(username, password):
-    c.execute("SELECT * FROM users WHERE username=? AND password=?", (username, password))
-    return c.fetchone()
-
-def register_user(username, password):
-    c.execute("INSERT INTO users VALUES (?,?)", (username, password))
-    conn.commit()
-
-# =============================
-# PAGE CONFIG
-# =============================
 st.set_page_config(layout="wide")
 
+st.title("🌍 Intelligent Voyage Itinerary System")
+st.markdown("### Real-Time Travel Planner (Like Google Maps)")
+
 # =============================
-# LOGIN SYSTEM
+# USER INPUT
 # =============================
-menu = ["Login", "Register"]
-choice = st.sidebar.selectbox("Menu", menu)
+start = st.text_input("📍 Starting Location", "Tumakuru, Karnataka, India")
+end = st.text_input("📍 Destination", "Davangere, Karnataka, India")
 
-if choice == "Register":
-    st.title("Register")
-    user = st.text_input("Username")
-    pwd = st.text_input("Password", type="password")
+col1, col2, col3 = st.columns(3)
 
-    if st.button("Register"):
-        register_user(user, pwd)
-        st.success("Account created! Go to login")
+with col1:
+    days = st.slider("📅 Number of Days", 1, 7, 3)
 
-elif choice == "Login":
-    st.title("Login")
-    user = st.text_input("Username")
-    pwd = st.text_input("Password", type="password")
+with col2:
+    vehicle = st.selectbox("🚗 Vehicle", ["Car", "Bike", "Bus", "Auto"])
 
-    if st.button("Login"):
-        result = login_user(user, pwd)
+with col3:
+    mileage = st.number_input("⛽ Mileage (km/l)", 10, 50, 20)
 
-        if result:
-            st.success("Login Successful ✅")
+interest = st.selectbox("🎯 Interest", ["culture", "adventure", "food", "nature"])
+fuel_price = st.number_input("💰 Fuel Price ₹/liter", 80, 120, 100)
 
-            # =============================
-            # MAIN APP STARTS
-            # =============================
-            data = pd.read_csv("data.csv")
+# =============================
+# FIXED GEOCODING FUNCTION
+# =============================
+def get_coords(place):
+    try:
+        url = "https://nominatim.openstreetmap.org/search"
+        params = {"q": place, "format": "json"}
+        headers = {"User-Agent": "ivis-app"}
 
-            st.title("🌍 Smart Travel Planner")
+        res = requests.get(url, params=params, headers=headers).json()
 
-            state = st.selectbox("State", data["state"].unique())
-            state_data = data[data["state"] == state]
+        if res:
+            return float(res[0]['lat']), float(res[0]['lon'])
+        return None, None
+    except:
+        return None, None
 
-            district = st.selectbox("District", state_data["district"].unique())
-            district_data = state_data[state_data["district"] == district]
+# =============================
+# SMART PLACE GENERATION
+# =============================
+def generate_places(interest):
+    data = {
+        "culture": ["Temple", "Fort", "Museum", "Palace"],
+        "adventure": ["Hill", "Waterfall", "Trekking Spot"],
+        "food": ["Restaurant", "Cafe", "Food Street"],
+        "nature": ["Lake", "Park", "Forest"]
+    }
 
-            taluk = st.selectbox("Taluk", district_data["taluk"].unique())
-            final_data = district_data[district_data["taluk"] == taluk]
+    places = []
+    for i in range(8):
+        name = f"{interest.capitalize()} Place {i+1}"
+        places.append({
+            "name": name,
+            "rating": round(4 + i*0.1, 1),
+            "price": 100 + i*50
+        })
+    return places
 
-            # =============================
-            # TRAVEL INPUT
-            # =============================
-            st.subheader("Travel Details")
+# =============================
+# MAIN BUTTON
+# =============================
+if st.button("🚀 Plan My Trip"):
 
-            start = st.text_input("Starting Location")
-            end = st.text_input("Destination")
+    start_c = get_coords(start)
+    end_c = get_coords(end)
 
-            vehicle = st.selectbox("Vehicle", ["Car", "Bike", "Bus", "Auto"])
-            mileage = st.number_input("Mileage (km/l)", 10, 50, 20)
-            fuel_price = st.number_input("Fuel Price", 80, 120, 100)
+    if start_c and end_c and start_c[0] and end_c[0]:
 
-            budget = st.slider("Budget", 0, 5000, 2000)
+        # =============================
+        # MAP
+        # =============================
+        st.subheader("🗺 Live Route Map")
 
-            # =============================
-            # GET COORDINATES
-            # =============================
-            def get_coordinates(place):
-                url = f"https://nominatim.openstreetmap.org/search?q={place}&format=json"
-                res = requests.get(url).json()
-                if res:
-                    return float(res[0]['lat']), float(res[0]['lon'])
-                return None, None
+        m = folium.Map(location=start_c, zoom_start=7)
+        folium.Marker(start_c, tooltip="Start").add_to(m)
+        folium.Marker(end_c, tooltip="End").add_to(m)
 
-            if st.button("Plan Trip"):
+        folium.PolyLine([start_c, end_c], color="blue", weight=5).add_to(m)
 
-                # =============================
-                # MAP
-                # =============================
-                st.subheader("Live Map")
+        st_folium(m, width=900, height=500)
 
-                start_coord = get_coordinates(start)
-                end_coord = get_coordinates(end)
+        # =============================
+        # DISTANCE + COST
+        # =============================
+        distance = geodesic(start_c, end_c).km
+        st.success(f"📏 Distance: {distance:.2f} km")
 
-                if start_coord[0] and end_coord[0]:
-                    m = folium.Map(location=start_coord, zoom_start=7)
+        fuel_needed = distance / mileage
+        cost = fuel_needed * fuel_price
 
-                    folium.Marker(start_coord, tooltip="Start").add_to(m)
-                    folium.Marker(end_coord, tooltip="End").add_to(m)
+        st.success(f"⛽ Fuel Needed: {fuel_needed:.2f} liters")
+        st.success(f"💰 Estimated Cost: ₹{cost:.2f}")
 
-                    folium.PolyLine([start_coord, end_coord]).add_to(m)
+        # =============================
+        # PLACES
+        # =============================
+        st.subheader("📍 Recommended Places")
 
-                    st_folium(m, width=700, height=400)
+        places = generate_places(interest)
 
-                    # =============================
-                    # DISTANCE
-                    # =============================
-                    distance = geodesic(start_coord, end_coord).km
+        for p in places:
+            st.write(f"🔹 {p['name']} ⭐{p['rating']} ₹{p['price']}")
 
-                    st.success(f"Distance: {distance:.2f} km")
+        # =============================
+        # HOTELS
+        # =============================
+        st.subheader("🏨 Hotels")
 
-                    fuel_needed = distance / mileage
-                    cost = fuel_needed * fuel_price
+        for i in range(5):
+            st.write(f"Hotel {i+1} ⭐{4+i*0.1} ₹{1500+i*300}")
 
-                    st.success(f"Travel Cost: ₹{cost:.2f}")
+        # =============================
+        # RESTAURANTS
+        # =============================
+        st.subheader("🍽 Restaurants")
 
-                else:
-                    st.error("Location not found")
+        for i in range(5):
+            st.write(f"Restaurant {i+1} ⭐{4+i*0.1} ₹{300+i*100}")
 
-                # =============================
-                # FILTER DATA
-                # =============================
-                filtered = final_data[final_data["price"] <= budget]
+        # =============================
+        # ITINERARY
+        # =============================
+        st.subheader("🗓 Smart Itinerary")
 
-                # =============================
-                # AI RECOMMENDATION (SMART SORT)
-                # =============================
-                st.subheader("Recommended Places")
+        plan = []
+        for i in range(days):
+            p = places[i % len(places)]
+            text = f"Day {i+1}: Visit {p['name']}"
+            plan.append(text)
+            st.write(text)
 
-                recommended = filtered.sort_values(by=["rating", "price"], ascending=[False, True])
+        st.download_button("📥 Download Plan", "\n".join(plan), "trip_plan.txt")
 
-                for _, row in recommended.iterrows():
-                    st.write(f"{row['place']} ⭐{row['rating']} ₹{row['price']}")
-
-                # =============================
-                # ITINERARY
-                # =============================
-                st.subheader("Itinerary")
-
-                places = recommended["place"].tolist()
-
-                plan = []
-
-                for i in range(min(3, len(places))):
-                    text = f"Day {i+1}: Visit {places[i]}"
-                    plan.append(text)
-                    st.write(text)
-
-                if plan:
-                    st.download_button("Download Plan", "\n".join(plan), "plan.txt")
-
-        else:
-            st.error("Invalid login")
+    else:
+        st.error("❌ Could not find location. Try full name like 'Tumakuru, Karnataka, India'")
