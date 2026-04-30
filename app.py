@@ -1,161 +1,174 @@
 import streamlit as st
 import pandas as pd
+import sqlite3
+import requests
+from geopy.distance import geodesic
+from streamlit_folium import st_folium
+import folium
+
+# =============================
+# DATABASE SETUP
+# =============================
+conn = sqlite3.connect("users.db", check_same_thread=False)
+c = conn.cursor()
+
+c.execute('''
+CREATE TABLE IF NOT EXISTS users (
+    username TEXT,
+    password TEXT
+)
+''')
+
+conn.commit()
+
+# =============================
+# FUNCTIONS
+# =============================
+def login_user(username, password):
+    c.execute("SELECT * FROM users WHERE username=? AND password=?", (username, password))
+    return c.fetchone()
+
+def register_user(username, password):
+    c.execute("INSERT INTO users VALUES (?,?)", (username, password))
+    conn.commit()
 
 # =============================
 # PAGE CONFIG
 # =============================
-st.set_page_config(page_title="IVIS", layout="wide")
+st.set_page_config(layout="wide")
 
 # =============================
-# LOAD DATA
+# LOGIN SYSTEM
 # =============================
-data = pd.read_csv("data.csv")
+menu = ["Login", "Register"]
+choice = st.sidebar.selectbox("Menu", menu)
 
-# =============================
-# TITLE
-# =============================
-st.title("🌍 Intelligent Voyage Itinerary System")
-st.markdown("### Smart Travel Planner (India)")
+if choice == "Register":
+    st.title("Register")
+    user = st.text_input("Username")
+    pwd = st.text_input("Password", type="password")
 
-# =============================
-# LOCATION SELECTION
-# =============================
-col1, col2, col3 = st.columns(3)
+    if st.button("Register"):
+        register_user(user, pwd)
+        st.success("Account created! Go to login")
 
-with col1:
-    state = st.selectbox("Select State", data["state"].unique())
+elif choice == "Login":
+    st.title("Login")
+    user = st.text_input("Username")
+    pwd = st.text_input("Password", type="password")
 
-state_data = data[data["state"] == state]
+    if st.button("Login"):
+        result = login_user(user, pwd)
 
-with col2:
-    district = st.selectbox("Select District", state_data["district"].unique())
+        if result:
+            st.success("Login Successful ✅")
 
-district_data = state_data[state_data["district"] == district]
+            # =============================
+            # MAIN APP STARTS
+            # =============================
+            data = pd.read_csv("data.csv")
 
-with col3:
-    taluk = st.selectbox("Select Taluk", district_data["taluk"].unique())
+            st.title("🌍 Smart Travel Planner")
 
-final_data = district_data[district_data["taluk"] == taluk]
+            state = st.selectbox("State", data["state"].unique())
+            state_data = data[data["state"] == state]
 
-# =============================
-# TRAVEL INPUT
-# =============================
-st.subheader("🚗 Travel Details")
+            district = st.selectbox("District", state_data["district"].unique())
+            district_data = state_data[state_data["district"] == district]
 
-col4, col5, col6 = st.columns(3)
+            taluk = st.selectbox("Taluk", district_data["taluk"].unique())
+            final_data = district_data[district_data["taluk"] == taluk]
 
-with col4:
-    start = st.text_input("Starting Location")
+            # =============================
+            # TRAVEL INPUT
+            # =============================
+            st.subheader("Travel Details")
 
-with col5:
-    end = st.text_input("Destination")
+            start = st.text_input("Starting Location")
+            end = st.text_input("Destination")
 
-with col6:
-    vehicle = st.selectbox("Vehicle", ["Car", "Bike", "Bus", "Auto"])
+            vehicle = st.selectbox("Vehicle", ["Car", "Bike", "Bus", "Auto"])
+            mileage = st.number_input("Mileage (km/l)", 10, 50, 20)
+            fuel_price = st.number_input("Fuel Price", 80, 120, 100)
 
-col7, col8 = st.columns(2)
+            budget = st.slider("Budget", 0, 5000, 2000)
 
-with col7:
-    mileage = st.number_input("Mileage (km/l)", 10, 50, 20)
+            # =============================
+            # GET COORDINATES
+            # =============================
+            def get_coordinates(place):
+                url = f"https://nominatim.openstreetmap.org/search?q={place}&format=json"
+                res = requests.get(url).json()
+                if res:
+                    return float(res[0]['lat']), float(res[0]['lon'])
+                return None, None
 
-with col8:
-    fuel_price = st.number_input("Fuel Price ₹/liter", 80, 120, 100)
+            if st.button("Plan Trip"):
 
-budget = st.slider("Select Budget ₹", 0, 5000, 2000)
+                # =============================
+                # MAP
+                # =============================
+                st.subheader("Live Map")
 
-# =============================
-# DISTANCE (STATIC DEMO)
-# =============================
-distance = 120  # You can upgrade later with API
+                start_coord = get_coordinates(start)
+                end_coord = get_coordinates(end)
 
-# =============================
-# BUTTON ACTION
-# =============================
-if st.button("🚀 Plan My Trip"):
+                if start_coord[0] and end_coord[0]:
+                    m = folium.Map(location=start_coord, zoom_start=7)
 
-    # =============================
-    # MAP ROUTE
-    # =============================
-    st.subheader("🗺 Route Map")
-    map_link = f"https://www.google.com/maps/dir/{start}/{end}"
-    st.markdown(f"[👉 Open Route in Google Maps]({map_link})")
+                    folium.Marker(start_coord, tooltip="Start").add_to(m)
+                    folium.Marker(end_coord, tooltip="End").add_to(m)
 
-    # =============================
-    # TRAVEL COST
-    # =============================
-    st.subheader("💰 Travel Cost Calculation")
+                    folium.PolyLine([start_coord, end_coord]).add_to(m)
 
-    fuel_needed = distance / mileage
-    total_cost = fuel_needed * fuel_price
+                    st_folium(m, width=700, height=400)
 
-    st.success(f"Distance: {distance} km")
-    st.success(f"Fuel Needed: {fuel_needed:.2f} liters")
-    st.success(f"Estimated Cost: ₹{total_cost:.2f}")
+                    # =============================
+                    # DISTANCE
+                    # =============================
+                    distance = geodesic(start_coord, end_coord).km
 
-    # =============================
-    # FILTER DATA
-    # =============================
-    filtered = final_data[final_data["price"] <= budget]
+                    st.success(f"Distance: {distance:.2f} km")
 
-    # =============================
-    # SHOW PLACES
-    # =============================
-    st.subheader("📍 Tourist Places")
-    places = filtered[filtered["type"] == "place"]
+                    fuel_needed = distance / mileage
+                    cost = fuel_needed * fuel_price
 
-    if places.empty:
-        st.warning("No places found")
-    else:
-        for _, row in places.iterrows():
-            st.write(f"🔹 {row['place']} ⭐{row['rating']}")
+                    st.success(f"Travel Cost: ₹{cost:.2f}")
 
-    # =============================
-    # SHOW HOTELS
-    # =============================
-    st.subheader("🏨 Hotels")
-    hotels = filtered[filtered["type"] == "hotel"]
+                else:
+                    st.error("Location not found")
 
-    if hotels.empty:
-        st.warning("No hotels found")
-    else:
-        for _, row in hotels.iterrows():
-            st.write(f"🔹 {row['place']} 💰₹{row['price']} ⭐{row['rating']}")
+                # =============================
+                # FILTER DATA
+                # =============================
+                filtered = final_data[final_data["price"] <= budget]
 
-    # =============================
-    # SHOW RESTAURANTS
-    # =============================
-    st.subheader("🍽 Restaurants")
-    foods = filtered[filtered["type"] == "restaurant"]
+                # =============================
+                # AI RECOMMENDATION (SMART SORT)
+                # =============================
+                st.subheader("Recommended Places")
 
-    if foods.empty:
-        st.warning("No restaurants found")
-    else:
-        for _, row in foods.iterrows():
-            st.write(f"🔹 {row['place']} 💰₹{row['price']} ⭐{row['rating']}")
+                recommended = filtered.sort_values(by=["rating", "price"], ascending=[False, True])
 
-    # =============================
-    # DAY PLAN
-    # =============================
-    st.subheader("🗓 Suggested Itinerary")
+                for _, row in recommended.iterrows():
+                    st.write(f"{row['place']} ⭐{row['rating']} ₹{row['price']}")
 
-    all_places = filtered["place"].tolist()
+                # =============================
+                # ITINERARY
+                # =============================
+                st.subheader("Itinerary")
 
-    itinerary = []
+                places = recommended["place"].tolist()
 
-    if len(all_places) == 0:
-        st.warning("No itinerary available")
-    else:
-        for i in range(min(3, len(all_places))):
-            plan = f"Day {i+1}: Visit {all_places[i]}"
-            itinerary.append(plan)
-            st.write(plan)
+                plan = []
 
-    # =============================
-    # DOWNLOAD
-    # =============================
-    if itinerary:
-        st.download_button(
-            "📥 Download Itinerary",
-            "\n".join(itinerary),
-            file_name="travel_plan.txt"
-        )
+                for i in range(min(3, len(places))):
+                    text = f"Day {i+1}: Visit {places[i]}"
+                    plan.append(text)
+                    st.write(text)
+
+                if plan:
+                    st.download_button("Download Plan", "\n".join(plan), "plan.txt")
+
+        else:
+            st.error("Invalid login")
